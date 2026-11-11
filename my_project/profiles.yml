@@ -18,7 +18,7 @@ my_project:
   outputs:
     dev:
       type: snowflake
-      account: ZTGOEZP-FH49182
+      account: HMDKHGH-NG16918
       user: DITT_BRUKERNAVN            # 👈 endre
       password: DITT_PASSORD           # 👈 endre
       role: WORKSHOP                   # rollen arrangøren har gitt deg (evt. ACCOUNTADMIN i eget testmiljø)

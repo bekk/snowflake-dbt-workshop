@@ -15,3 +15,5 @@ ARRANGOR.md
 .DS_Store
 jogga_dbt_intro_workshop.ipynb
 tools_config.yaml
+# Deltakerbrukere med passord – skal aldri pushes
+deltakere.csv

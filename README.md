@@ -40,8 +40,8 @@ skjemanavn) fra arrangøren.
 **1. Klon repoet og lag et virtuelt miljø:**
 
 ```bash
-git clone https://github.com/bekk/faggruppe-sommer-da-dbt.git
-cd faggruppe-sommer-da-dbt
+git clone https://github.com/bekk/snowflake-dbt-workshop.git
+cd snowflake-dbt-workshop
 
 python3 -m venv dbt-venv
 source dbt-venv/bin/activate        # Windows: dbt-venv\Scripts\activate
