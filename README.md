@@ -4,12 +4,12 @@ En introduksjon til **dbt** og **medaljearkitektur** (bronse/sølv/gull) med rei
 fra Statens vegvesen — kjørt mot **Snowflake**.
 
 Du løser oppgavene ved å skrive kode
-direkte i `.sql`-filene i `my_project/` — hver fil er markert med `-- 👉 SKRIV KODEN DIN HER`.
+direkte i `.sql`-filene i `my_project/` — hver fil er markert med `-- SKRIV KODEN DIN HER`.
 Sitter du fast, kan du åpne **Løsningsforslag** under hver oppgave.
 
 ---
 
-## Før du starter 🏁
+## Før du starter
 
 Vi bygger datamodeller på et datasett med **reisetider** fra Vegvesenet, og kobler det etter
 hvert mot **timetrafikk** (antall biler per time). Rådataen er ekte og litt rå: kolonnene har
@@ -54,9 +54,9 @@ pip install -r requirements.txt
 **2. Fyll inn din egen bruker i `my_project/profiles.yml`:**
 
 ```yaml
-      user: DITT_BRUKERNAVN          # 👈 fra arrangøren
-      password: DITT_PASSORD         # 👈 fra arrangøren
-      schema: WORKSHOP_DITT_NAVN     # 👈 ditt eget skjema, f.eks. WORKSHOP_OLA
+      user: DITT_BRUKERNAVN          # fra arrangøren
+      password: DITT_PASSORD         # fra arrangøren
+      schema: WORKSHOP_DITT_NAVN     # ditt eget skjema, f.eks. WORKSHOP_OLA
 ```
 
 > ⚠️ **Ikke** sett `schema` til `RAW`. Det er **kildeskjemaet** med rådata som alle leser fra.
@@ -80,12 +80,12 @@ Får du `All checks passed!`, er du klar 🎉
 
 ---
 
-## 🏠 Lag ditt eget skjema i Snowflake
+## Lag ditt eget skjema i Snowflake
 
 Alle deltakerne deler den samme databasen (`FAGGRUPPE_DB`), men **hver av dere bygger i sitt
 eget skjema**. Et skjema i Snowflake er som en mappe inni databasen — det er der tabellene og
 viewene dine havner. Slik unngår vi å overskrive hverandres tabeller, og modellene kan hete
-det de faktisk heter i stedet for å måtte prefikses med navnet ditt 🤠
+det de faktisk heter i stedet for å måtte prefikses med navnet ditt
 
 Velg et navn som er ditt, f.eks. `WORKSHOP_OLA`.
 
@@ -128,12 +128,12 @@ show views  in schema faggruppe_db.workshop_ola;
 
 ---
 
-## 🔎 Bli kjent med rådataen
+## Bli kjent med rådataen
 
 Rådataen er ekte og litt rå. To ting kommer til å overraske deg — og begge er jobber for
 **bronselaget**.
 
-### 🔤 Casing: kolonnenavnene har store og små bokstaver
+### Casing: kolonnenavnene har store og små bokstaver
 
 Rådataen ligger i `FAGGRUPPE_DB.RAW`, lastet inn fra Parquet-filer. Snowflake laget da
 kolonnene med **nøyaktig samme store/små bokstaver** som i filene, f.eks. `strekningId`. Slike
@@ -282,7 +282,7 @@ qualify row_number() over (
 
 Modellen skal gi **237** rader — én per strekning.
 
-> 🔎 Hvorfor ikke bare filtrere på `versjon`? Fordi `versjon` er `'1'` for *alle* radene her.
+> Hvorfor ikke bare filtrere på `versjon`? Fordi `versjon` er `'1'` for *alle* radene her.
 > Snapshotene skiller seg bare på `publiseringstidspunkt` og `kildefil`, så vi plukker den
 > nyeste raden per `id`.
 >
@@ -291,13 +291,13 @@ Modellen skal gi **237** rader — én per strekning.
 
 </details>
 
-> 💡 **timetrafikk** er også et bronseprodukt, men det er **ferdig laget for deg** i
+> **timetrafikk** er også et bronseprodukt, men det er **ferdig laget for deg** i
 > `models/1_bronze/timetrafikk.sql`, fordi rådataen der er dypt nøstet. Ta gjerne en titt — du
 > bruker den i oppgave 2.4.2.
 
 ---
 
-## Kjøre dbt selektivt for å spare tid og penger 💸
+## Kjøre dbt selektivt for å spare tid og penger
 
 Nå kan vi lage tabellene i Snowflake med `dbt run` (kjøres inne i `my_project/`).
 
@@ -349,12 +349,12 @@ where r.reisetidVarighetSekunder is null
 ```
 
 Modellen skal gi ca. **21,4 mill.** rader — altså like mange som bronsemodellen. Får du
-_vesentlig_ flere (200 mill.+), har du glemt å deduplisere `strekninger` i oppgave 2.1b 👆
+_vesentlig_ flere (200 mill.+), har du glemt å deduplisere `strekninger` i oppgave 2.1b
 
 
 </details>
 
-### Vise dbt-docs 📚
+### Vise dbt-docs
 
 ```bash
 dbt docs generate
@@ -393,7 +393,7 @@ group by navn
 
 ---
 
-## Oppgave 2.4: Koble timetrafikk til strekning 🚗
+## Oppgave 2.4: Koble timetrafikk til strekning
 
 Vi vil finne sammenhengen mellom trafikkmengde og reisetid. Vegvesenet måler antall biler per
 time ved ca. 2500 trafikkregistreringspunkter (TRP). Først må vi vite hvilket TRP som hører til
