@@ -421,7 +421,7 @@ CSV-en kobler fem strekninger til trafikkregistreringspunktet som ligger på dem
 | Ryen - Teisen | `47408V625213` | E6 Teisen |
 | Teisen - Ryen | `47408V625213` | E6 Teisen (samme punkt, motsatt retning) |
 | Helsfyr - Karihaugen | `79854V625215` | E6 v/Karihaugen |
-| Sandvika - Holmen | `50089V578151` | Sandvika |
+| Sandvika - Holmen | `28285V444233` | E18 Holmen |
 | Kristianborg - Danmarksplass | `22439V804830` | Danmarksplass–sentrum |
 
 > ℹ️ Koblingen er satt opp manuelt av arrangøren. Legg merke til at de to første radene deler
