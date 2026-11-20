@@ -380,7 +380,6 @@ største reisetid per strekning.
         materialized='table'
     )
 }}
-
 select
     navn,
     max(reisetidVarighetSekunder) as maxReisetid,
